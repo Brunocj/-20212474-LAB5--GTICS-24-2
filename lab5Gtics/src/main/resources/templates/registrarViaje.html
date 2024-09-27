@@ -12,22 +12,30 @@
 <div th:insert="~{navbar.html :: navbar}"></div>
 <h1>Nuevo Viaje</h1>
 
-<form th:action="@{/viajes/guardarViaje}" method="post">
+<form th:action="@{'/viajes/guardarViaje'}" th:object="${viaje}" method="post">
     <div class="mb-3">
         <div class="mb-3">
             <label for="puntoRecojo" class="form-label">Punto de recojo</label>
-            <input name="puntoRecojo" type="text" class="form-control" id="puntoRecojo">
+            <input  type="text" class="form-control" id="puntoRecojo" th:field="*{viaje.puntoRecojo}">
         </div>
 
         <div class="mb-3">
             <label for="cantPersonas" class="form-label">Cantidad de personas</label>
-            <input name="cantPersonas" type="text" class="form-control" id="cantPersonas">
+            <input  type="text" class="form-control" id="cantPersonas" th:field="*{viaje.cantPersonas}">
         </div>
 
         <div class="mb-3">
             <label for="cantPerros" class="form-label">Cantidad de perros</label>
-            <input name="cantPerros" type="text" class="form-control" id="cantPerros">
+            <input name="cantPerros" type="text" class="form-control" id="cantPerros" th:field="*{viaje.cantPerros}">
         </div>
+        <div class="mb-3">
+            <label  class="form-label">Personas</label>
+            <select class="form-select" id ="p">
+                <option th:each="persona : ${listaPersonas}" th:text="${persona.getNombre()}"
+                        th:value="${persona.getId()()}"></option>
+            </select>
+        </div>
+
     </div>
 
 </form>
