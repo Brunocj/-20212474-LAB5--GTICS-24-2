@@ -3,6 +3,7 @@ package com.example.lab5gtics.controller;
 
 import com.example.lab5gtics.entity.Lugare;
 import com.example.lab5gtics.entity.Persona;
+import com.example.lab5gtics.entity.Viaje;
 import com.example.lab5gtics.repository.LugareRepository;
 import com.example.lab5gtics.repository.MascotaRepository;
 import com.example.lab5gtics.repository.PersonaRepository;
@@ -60,7 +61,8 @@ public class lab5Controller {
     public String nuevoviaje(Model model){
         model.addAttribute("listaLugares", lugareRepository.findAll());
         model.addAttribute("listaPersonas", personaRepository.findAll());
-
+        Viaje viaje = new Viaje();
+        model.addAttribute("viaje", viaje);
         return "registrarViaje";
     }
 }

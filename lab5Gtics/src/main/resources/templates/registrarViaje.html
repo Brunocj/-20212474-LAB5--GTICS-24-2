@@ -16,23 +16,31 @@
     <div class="mb-3">
         <div class="mb-3">
             <label for="puntoRecojo" class="form-label">Punto de recojo</label>
-            <input  type="text" class="form-control" id="puntoRecojo" th:field="*{viaje.puntoRecojo}">
+            <input  type="text" class="form-control" id="puntoRecojo" th:field="${viaje.puntoRecojo}" >
         </div>
 
         <div class="mb-3">
             <label for="cantPersonas" class="form-label">Cantidad de personas</label>
-            <input  type="text" class="form-control" id="cantPersonas" th:field="*{viaje.cantPersonas}">
+            <input  type="text" class="form-control" id="cantPersonas" >
         </div>
 
         <div class="mb-3">
             <label for="cantPerros" class="form-label">Cantidad de perros</label>
-            <input name="cantPerros" type="text" class="form-control" id="cantPerros" th:field="*{viaje.cantPerros}">
+            <input name="cantPerros" type="text" class="form-control" id="cantPerros" th:field="${viaje.cantPerros}">
         </div>
         <div class="mb-3">
             <label  class="form-label">Personas</label>
             <select class="form-select" id ="p">
                 <option th:each="persona : ${listaPersonas}" th:text="${persona.getNombre()}"
-                        th:value="${persona.getId()()}"></option>
+                        th:value="${persona.getId()}"></option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label  class="form-label">Personas</label>
+            <select class="form-select" id ="d">
+                <option th:each="lugar : ${listaLugares}" th:text="${lugar.getNombreLugar()}"
+                        th:value="${lugar.getId()}"></option>|
             </select>
         </div>
 
